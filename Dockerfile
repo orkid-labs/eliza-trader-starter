@@ -1,27 +1,25 @@
-# Use the official Bun image as base
-FROM oven/bun:1.4 AS base
+# ElizaOS trading agent — Orkid gasless swaps + MemPalace memory
+FROM oven/bun:1.4
 
 WORKDIR /app
 
-# Copy character and env files
-COPY character.json ./
-COPY .env.example ./.env
+# elizaOS CLI (v1.7.x — @elizaos/cli provides the `elizaos` binary)
+RUN bun add -g @elizaos/cli
 
-# Install elizaos CLI
-RUN bun add -g elizaos
-
-# Create the project and install the Orkid plugins
-RUN elizaos create --type project trader-agent --yes && \
-    cd trader-agent && \
-    bun add @orkid-labs/plugin-orkid @orkid-labs/plugin-mempalace
-
-# Copy the character file into the project
-COPY character.json ./trader-agent/src/character.ts
-
-# Build the project
-RUN cd trader-agent && bun run build
-
-EXPOSE 3000
+# Scaffold the agent project
+RUN elizaos create --type project trader-agent --yes
 
 WORKDIR /app/trader-agent
+
+# Orkid plugins + model providers (Groq free-tier or OpenAI)
+RUN bun add @orkid-labs/plugin-orkid @orkid-labs/plugin-mempalace \
+    @elizaos/plugin-groq @elizaos/plugin-openai
+
+# Orkid Trader character (replaces the scaffold's default Eliza)
+COPY src/character.ts src/character.ts
+
+# Build the project
+RUN bun run build
+
+EXPOSE 3000
 CMD ["elizaos", "start"]

@@ -1,6 +1,6 @@
 # eliza-trader-starter
 
-A working ElizaOS agent that does **gasless token swaps** and remembers its
+A working ElizaOS agent that does **gasless token swaps** — runs on a free Groq key, no paid OpenAI account needed — and remembers its
 users — built on two published plugins:
 
 - [`@orkid-labs/plugin-orkid`](https://github.com/orkid-labs/plugin-orkid) —
@@ -22,7 +22,7 @@ users — built on two published plugins:
 
 ```bash
 cp .env.example .env
-# fill in OPENAI_API_KEY and ORKID_USER_ADDRESS at minimum
+# fill in GROQ_API_KEY (free at console.groq.com) and ORKID_USER_ADDRESS at minimum
 # add ORKID_API_KEY for partner volume tracking + rebates
 
 docker build -t eliza-trader-starter .
