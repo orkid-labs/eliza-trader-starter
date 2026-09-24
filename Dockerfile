@@ -21,5 +21,6 @@ COPY src/character.ts src/character.ts
 # Build the project
 RUN bun run build
 
+LABEL org.opencontainers.image.source="https://github.com/orkid-labs/eliza-trader-starter"
 EXPOSE 3000
 CMD ["elizaos", "start"]
