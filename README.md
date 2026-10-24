@@ -76,3 +76,18 @@ Production requests pass the key as `X-ORKID-API-Key: <key>`.
 - Polygon same-chain execution is paused; bridging is available.
 - Fill record is public and auditable — median settled cost ~33bps vs
   oracle mid on audited fills, vs ~91bps on external public routers.
+
+---
+
+## Part of Orkid Labs
+
+**eliza-trader-starter** — Starter template for building an Orkid-powered trading agent on ElizaOS — gasless, MEV-protected swaps on Base.
+
+- Install: `gh repo clone orkid-labs/eliza-trader-starter`
+- Package: https://github.com/orkid-labs/eliza-trader-starter
+- API docs: https://docs.orkidlabs.xyz/packages/eliza-trader-starter
+- Docs: https://docs.orkidlabs.xyz/packages/eliza-trader-starter
+
+Related Orkid projects: [@orkid-labs/plugin-orkid](https://github.com/orkid-labs/plugin-orkid), [orkid-swap-mcp](https://github.com/orkid-labs/orkid-swap-mcp)
+
+Orkid Labs builds gasless, MEV-protected swap routing and agent-native DeFi infrastructure — [orkidlabs.xyz](https://orkidlabs.xyz) · [@orkid-labs on npm](https://www.npmjs.com/org/orkid-labs) · [github.com/orkid-labs](https://github.com/orkid-labs)
